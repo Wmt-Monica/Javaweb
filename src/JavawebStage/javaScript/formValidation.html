@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <script>
+        /**
+         * @return {boolean}
+         */
+        function SubmitVerification(){
+            var userName = document.getElementById("userName").value;
+            if (userName == ""){
+                alert("用户名不能为空");
+                return false;
+            }
+            var password = document.getElementById("password").value;
+            if (password == ""){
+                alert("密码不能为空");
+                return false;
+            }
+            var repassword = document.getElementById("repassword").value;
+            if (repassword != password){
+                alert("两次输入的密码不一致，请确认后在输入");
+                return false;
+            }
+
+            // 使用正则的匹配来验证邮箱格式
+            /*
+             * js中有两种匹配正则的方式：
+             *  1.使用String对象中的match方法
+             *  2.使用正则对象中的test方法
+             */
+            var email = document.getElementById("email").value;
+            // if (!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(email))){
+            //     alert("邮箱格式错误");
+            //     return false;
+            // }
+            if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/)){
+                alert("邮箱格式错误");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>          <!--在form表单中的 onsubmit 属性是用于表单提交的添加 js 的校验-->
+    <form action="#" method="get" name="form" onsubmit="return SubmitVerification()">
+        <table border="3px" width="80%" align="center" height = auto>
+            <tr>
+                <td colspan="2">
+                    <h3>&nbsp;&nbsp;会员注册&nbsp;&nbsp;&nbsp;USER&nbsp;&nbsp;REGISISTER</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font>用户名</font>
+                </td>
+                <td>
+                    <input type="text" name="userName" id="userName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font>密码</font>
+                </td>
+                <td>
+                    <input type="password" name="password" id="password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font>确认密码</font>
+                </td>
+                <td>
+                    <input type="password" name="repassword" id="repassword">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font>性别</font>
+                </td>
+                <td>
+                    <input type="radio" value="男" name="sex" checked="checked">男  <!--checked="checked"是选择默认选项-->
+                    <input type="radio" value="女" name="sex">女
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font>籍贯</font>
+                </td>
+                <td>
+                    <select>---请选择---
+                        <option>北京</option>
+                        <option>上海</option>
+                        <option>厦门</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font>爱好</font>
+                </td>
+                <td>
+                    <input type="checkbox" value="篮球" checked="checked" name="hobby">篮球  <!--checked="checked"是选择默认选项-->
+                    <input type="checkbox" value="足球" name="hobby">足球
+                    <input type="checkbox" value="排球" name="hobby">排球
+                    <input type="checkbox" value="羽毛球" name="hobby">羽毛球
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <font>邮箱</font>
+                </td>
+                <td>
+                    <input type="email"  name="email" id="email">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="注册">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
