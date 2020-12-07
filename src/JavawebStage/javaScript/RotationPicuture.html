@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .picture{
+            width: 30%;
+            height: auto;
+            margin: auto;
+            text-align: center;
+            float: left;
+            margin-left: 35%;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        .buttons{
+            float: left;
+            width: 40%;
+            margin-left: 25%;
+        }
+        #ads{
+            float: left;
+            width: 100%;
+            display: none;
+        }
+        .adsImgLeft{
+            float: left;
+        }
+        .adsImgRight{
+            float: right;
+        }
+    </style>
+    <script>
+        var imgNums = 1;
+        function select1() {
+            var picture = document.getElementById("imgShow");
+            imgNums = 1;
+            picture.src = "img/"+imgNums+".jpg";
+        }
+        function select2() {
+            var picture = document.getElementById("imgShow");
+            imgNums = 2;
+            picture.src = "img/"+imgNums+".jpg";
+        }
+        function select3() {
+            var picture = document.getElementById("imgShow");
+            imgNums = 3;
+            picture.src = "img/"+imgNums+".jpg";
+        }
+        function select4() {
+            var picture = document.getElementById("imgShow");
+            imgNums = 4;
+            picture.src = "img/"+imgNums+".jpg";
+        }
+        function changeImgLeft() {
+            if (imgNums > 1){
+                imgNums -= 1;
+            }else {
+                imgNums = 4;
+            }
+            var picture = document.getElementById("imgShow");
+            picture.src = "img/"+imgNums+".jpg";
+        }
+        function changeImgRight() {
+            if (imgNums < 4){
+                imgNums += 1;
+            }else {
+                imgNums = 1;
+            }
+            var picture = document.getElementById("imgShow");
+            picture.src = "img/"+imgNums+".jpg";
+        }
+        // 加载成功，启动监听器,每过五秒就更换轮播图图片
+        window.onload = function () {
+            setInterval(changeImgRight,3000);
+            setTimeout(PopUpAds,3000);
+        }
+        function PopUpAds() {
+            var ads = document.getElementById("ads");
+            ads.style.display = "block";
+            setTimeout(ExitAds,3000);
+        }
+        function ExitAds() {
+            var ads = document.getElementById("ads");
+            ads.style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="picture">
+        <img src="img/1.jpg" height="400px" id="imgShow">
+        <div class="left">
+            <input type="button" value="<" align="center" onclick="changeImgLeft()">
+        </div>
+        <div class="buttons">
+            <input type="button" value="1" onclick="select1()">
+            <input type="button" value="2" onclick="select2()">
+            <input type="button" value="3" onclick="select3()">
+            <input type="button" value="4" onclick="select4()">
+        </div>
+        <div class="right">
+            <input type="button" value=">" align="center" onclick="changeImgRight()">
+        </div>
+    </div>
+    <div id="ads">
+        <img src="img/5.jpg" width="300px" class="adsImgLeft">
+        <img src="img/6.jpg" width="300px" class="adsImgRight">
+    </div>
+</body>
+</html>
