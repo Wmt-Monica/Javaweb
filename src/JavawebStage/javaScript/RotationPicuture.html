@@ -13,7 +13,6 @@
             height: auto;
             margin: auto;
             text-align: center;
-            float: left;
             margin-left: 35%;
         }
         .left{
@@ -27,9 +26,9 @@
             width: 40%;
             margin-left: 25%;
         }
-        #ads{
+        #ads1,#ads2{
             float: left;
-            width: 100%;
+            width: 25%;
             display: none;
         }
         .adsImgLeft{
@@ -37,6 +36,15 @@
         }
         .adsImgRight{
             float: right;
+        }
+        #backgroundImg{
+            width: 50%;
+            float: left;
+            margin-left: 25%;
+            display: none;
+        }
+        .allImg{
+            width: 100%;
         }
     </style>
     <script>
@@ -83,15 +91,38 @@
         window.onload = function () {
             setInterval(changeImgRight,3000);
             setTimeout(PopUpAds,3000);
+            time = setInterval(PopUpBackImg,5000);  // 每隔五秒定时弹出桌面背景图片
         }
         function PopUpAds() {
-            var ads = document.getElementById("ads");
-            ads.style.display = "block";
+            var ads1 = document.getElementById("ads1");
+            var ads2 = document.getElementById("ads2");
+            var backgroundImg = document.getElementById("backgroundImg");
+            ads2.style.marginLeft = "50%";
+            ads1.style.display = "block";
+            ads2.style.display = "block";
+            backgroundImg.style.marginLeft = "0%";
             setTimeout(ExitAds,3000);
         }
         function ExitAds() {
-            var ads = document.getElementById("ads");
-            ads.style.display = "none";
+            var ads1 = document.getElementById("ads1");
+            var ads2 = document.getElementById("ads2");
+            var backgroundImg = document.getElementById("backgroundImg");
+            backgroundImg.style.marginLeft = "25%";
+            ads1.style.display = "none";
+            ads2.style.display = "none";
+        }
+        function PopUpBackImg() {
+            var backgroundImg = document.getElementById("backgroundImg");
+            var ads2 = document.getElementById("ads2");
+            ads2.style.marginLeft = "0%";
+            backgroundImg.style.display = "block";
+            clearInterval(time);  // 清除定时弹出背景图片的事件
+            time = setInterval(ExitBackImg,5000);  // 每隔五秒隐藏桌面背景图片的事件,并且重新赋值给time
+        }
+        function ExitBackImg() {
+            var backgroundImg = document.getElementById("backgroundImg");
+            backgroundImg.style.display = "none";
+            clearInterval(time);  // 清除定时隐藏桌面背景图片的操作
         }
     </script>
 </head>
@@ -111,9 +142,16 @@
             <input type="button" value=">" align="center" onclick="changeImgRight()">
         </div>
     </div>
-    <div id="ads">
-        <img src="img/5.jpg" width="300px" class="adsImgLeft">
-        <img src="img/6.jpg" width="300px" class="adsImgRight">
+    <div class="allImg">
+        <div id="ads1">
+            <img src="img/5.jpg" width="100%" class="adsImgLeft">
+        </div>
+        <div id="backgroundImg">
+            <img src="img/7.png" width="100%" >
+        </div>
+        <div id="ads2">
+            <img src="img/6.jpg" width="100%" class="adsImgRight">
+        </div>
     </div>
 </body>
 </html>
