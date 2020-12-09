@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用JQuery来实现广告的弹出与弹出</title>
+</head>
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script>
+    $(function () {
+        time = setInterval("showAds()",3000);  // 创建一个定时器每隔3秒钟显现广告图片
+    })
+
+    function showAds(){
+        // $("#ads").show(1000);  // 使广告图片在一秒的缓冲下显现出来,使用JQuery的显现对象的方法show()
+        $("#ads").slideDown(3000);  // 使得对象向下在三秒的时间缓冲下显现出来，JQuery对象的特效方法
+        clearInterval(time);  // 消除定时操作显现广告的定时器
+        time = setInterval(hiddenADS,3000);  // 创建一个定时器每隔三秒隐藏广告图片
+    }
+
+    function hiddenADS() {
+        // $("#ads").hide(1000);  // 使得广告在一秒的缓冲下消失
+        $("#ads").slideUp(3000);  // 使得对象向上在三秒的时间缓冲下隐藏出来，JQuery对象的特效方法
+        clearInterval(time);  // 消除定时操作隐藏图片广告的定时器
+    }
+</script>
+<body>
+    <img src="img/1.png" width="100%" style="display: none" id="ads">
+</body>
+</html>
