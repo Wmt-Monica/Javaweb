@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery的使用</title>
+</head>
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script>
+    window.onload = function () {
+        alert("石燔傻逼");
+    }
+    // 传统的方式的页面加载会存在覆盖现象，并且加载比JQuery慢(整个页面加载完毕，包括里面的其他内容，比如图片)
+    window.onload = function () {
+        alert("石燔大傻逼");
+    }
+    // jQuery的加载比javaScript的加载更快(当整个dom树结构绘制完毕就会加载)，并且不会出现覆盖现象。会按照顺序执行
+    jQuery(document).ready(function(){
+        alert("石燔笨蛋");
+    });
+    $(document).ready(function(){
+        alert("石燔大笨蛋");
+    });
+    //  简写方式
+    $(function(){
+        alert("石燔又傻逼又笨蛋");
+    });
+</script>
+<body>
+
+</body>
+</html>
