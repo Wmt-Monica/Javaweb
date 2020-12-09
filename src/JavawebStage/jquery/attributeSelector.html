@@ -43,22 +43,22 @@
 <script type="text/javascript" src="jquery-1.8.3.js"></script>
 <script>
     $(function () {
-        // body中的第一个div元素
+        // 有id属性的div元素
         $("#but1").click(function () {
             $("div[id]").css("background-color","pink");
         });
 
-        // body中的最后一个div元素
+        // 有id属性且值为div2的div元素
         $("#but2").click(function () {
             $("div[id='div2']").css("background","cornflowerblue");
         });
 
-        // body中的奇数个div元素
+        // 有class属性的div
         $("#but3").click(function () {
             $("div[class]").css("background-color","crimson");
         });
 
-        // body中的偶数个div元素
+        // 有class属性且值为class1的div元素
         $("#but4").click(function () {
             $("div[class='class1']").css("background-color","yellow");
         })
