@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM</title>
+</head>
+<!--
+    Browser Object Mode(浏览器对象模式)
+    Browser 对象
+        1.DOM Window
+        2.DOM Navigator
+        3.DOM Screen
+        4.DOM History
+        5.DOM Location
+-->
+<style>
+    div{
+        width: 30%;
+        height: 370px;
+        text-align: center;
+        margin-left: 35%;
+        margin-top: 5px;
+        background-color: cornflowerblue;
+    }
+    input[type="button"]{
+        width: 35%;
+        float: left;
+        margin-left: 30%;
+        margin-top: 5%;
+    }
+    button{
+        width: 35%;
+        float: left;
+        margin-left: 30%;
+        margin-top: 5%;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<script>
+    function alert1() {
+       alert("显示带有一段消息和一个确认按钮的警告框");
+    }
+    function confirm1() {
+        confirm("显示带有一段消息以及确认按钮和取消按钮的确认框");
+    }
+    function prompt1() {
+        prompt("显示可提示用户输入的提示框");
+    }
+    function GetWindow() {
+        // IE9(及以上),Chrome,Firefox等其他浏览器获取窗体的宽度和高度的方式
+        alert("窗体宽度："+window.innerWidth);
+        alert("窗体高度："+window.innerHeight);
+    }
+    function IEGetWindow1() {
+        // Internet Explorer8,7,6,5
+        var wight = document.documentElement.clientWidth;
+        var height = document.documentElement.clientHeight;
+        alert("窗体的宽度："+wight);
+        alert("窗体的高度："+height);
+    }
+    function IEGetWindow2() {
+        // Internet Explorer8,7,6,5
+        var wight = document.body.clientWidth;
+        var height = document.body.clientHeight;
+        alert("窗体的宽度："+wight);
+        alert("窗体的高度："+height);
+    }
+    function AllGetWindow() {
+        // 兼容所有浏览器的JS实现方案
+        var wight = window.innerWidth;
+        var height = window.innerHeight;
+        alert("窗体宽度："+wight);
+        alert("窗体高度："+height);
+    }
+    function method1() {
+        alert("返回从 # 号开始的URL(锚)："+location.hash);
+    }
+    function method2() {
+        alert("返回主机名和当前URL的端口号："+location.host);
+    }
+    function method3() {
+        alert("返回当前URL的主机名："+location.hostname);
+    }
+    function method4() {
+        alert("返回完整的URL："+location.href);
+    }
+    function method5() {
+        alert("返回当前URL的路径部分："+location.pathname);
+    }
+    function method6() {
+        alert("返回当前URL的端口号："+location.port);
+    }
+    function method7() {
+        alert("返回当前URL的协议："+location.protocol);
+    }
+    function method8() {
+        alert("返回从问号(?)开始的URL(查询部分)："+location.search);
+    }
+    function goToBack() {
+        history.go(1); // 跳转到下一页
+    }
+</script>
+<body>
+    <!--DOM Window 对象-->
+    <div>
+        <input type="button" onclick="alert1()" value="alert按钮">
+        <button onclick="confirm1()">confirm按钮</button>
+        <button onclick="prompt1()">prompt按钮</button>
+        <button onclick="GetWindow()">窗体宽度和高度的获取1</button>
+        <button onclick="IEGetWindow1()">窗体宽度和高度的获取2</button>
+        <button onclick="IEGetWindow2()">窗体宽度和高度的获取3</button>
+        <button onclick="AllGetWindow()">窗体宽度和高度的获取3</button>
+    </div>
+    <!--DOM Location 对象-->
+    <div>
+        <button onclick="method1()">hash</button>
+        <button onclick="method2()">host</button>
+        <button onclick="method3()">hostname</button>
+        <button onclick="method4()">href</button>
+        <button onclick="method5()">pathname</button>
+        <button onclick="method6()">port</button>
+        <button onclick="method7()">protocol</button>
+        <button onclick="method8()">search</button>
+    </div>
+    <!--BOM History对象-->
+    <div>
+        <a href="first.html"><button>第一页</button></a>
+        <button onclick="goToBack()">下一页</button>
+    </div>
+</body>
+</html>
