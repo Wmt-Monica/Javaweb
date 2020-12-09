@@ -22,8 +22,45 @@
         $("#ads").slideUp(3000);  // 使得对象向上在三秒的时间缓冲下隐藏出来，JQuery对象的特效方法
         clearInterval(time);  // 消除定时操作隐藏图片广告的定时器
     }
+
+    $(function () {
+       $("#but").click(function () {
+            $("#ads2").toggle(1000);  // 使用Jquery对象的toggle()方法,是所属性的显现和隐藏开关的功能的方法
+       })
+    })
 </script>
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    #ads,#ads2{
+        display: none;
+        float: left;
+        width: 50%;
+    }
+    #ads2 img{
+        float: left;
+        width: 50%;
+    }
+    button{
+        float: left;
+        width: 20%;
+        height: 50px;
+        margin-left: 40%;
+    }
+    font{
+        font-size: 20px;
+    }
+</style>
 <body>
-    <img src="img/1.png" width="100%" style="display: none" id="ads">
+    <div id="ads">
+        <img src="img/1.png" width="100%">
+    </div>
+    <div id="ads2">
+        <img src="img/2.jpg" width="100%" height="100%">
+        <img src="img/3.jpg" width="100%" height="100%">
+    </div>
+    <button id="but"><font>显现/隐藏</font></button>
 </body>
 </html>
