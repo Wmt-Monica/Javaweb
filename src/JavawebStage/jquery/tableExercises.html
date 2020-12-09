@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>表格使用Jquery来实现隔行设置 不同的颜色</title>
+    <title>表格使用Jquery来实现隔行设置 不同的颜色同时实现全选和全不选的功能</title>
     <style>
         table{
             width: 60%;
@@ -21,7 +21,8 @@
             background-color: yellow;
         }
     </style>
-    <script type="text/javascript" src="jquery-1.8.3.js"></script>
+<!--    <script type="text/javascript" src="jquery-1.8.3.js"></script>-->
+    <script type="text/javascript" src="jquery-1.11.0.js"></script>
     <script>
         $(function () {
             $("#but1").click(function () {
@@ -38,30 +39,30 @@
                 $("table tr:even").removeClass("even");  // 给表格中行数为奇数移除class属性
                 $("table tr:odd").removeClass("odd");  // 给表格中行数为偶数移除class属性
             });
+
+            $("#allCheck1").click(function () {
+                // attr方法与JQuery的版本有关，在1.8版本以及一下的会有效果，其他更高的版本回出现点击一次之后没有效果
+                // 但是 prop() 与 attr()方法有一样的功能在高版本和低版本都有效果
+                // $("table input[type = 'checkbox']").attr("checked",this.checked);
+                $("table input[type = 'checkbox']").prop("checked",this.checked);
+            });
+
+            $("#allCheck2").click(function () {
+                // $(".oneCheck").attr("checked",this.checked);
+                $(".oneCheck").prop("checked",this.checked);
+            });
         });
+
     </script>
 </head>
 <body>
     <from>
         <table border="1">
             <tr>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-            </tr>
-            <tr>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-            </tr>
-            <tr>
-                <td>@</td>
+                <td>
+                    全选1<input type="checkbox" id="allCheck1"><br>
+                    全选2<input type="checkbox" id="allCheck2">
+                </td>
                 <td>@</td>
                 <td>@</td>
                 <td>@</td>
@@ -69,15 +70,9 @@
                 <td>@</td>
             </tr>
             <tr>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-            </tr>
-            <tr>
-                <td>@</td>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
                 <td>@</td>
                 <td>@</td>
                 <td>@</td>
@@ -85,15 +80,9 @@
                 <td>@</td>
             </tr>
             <tr>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-            </tr>
-            <tr>
-                <td>@</td>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
                 <td>@</td>
                 <td>@</td>
                 <td>@</td>
@@ -101,15 +90,9 @@
                 <td>@</td>
             </tr>
             <tr>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-            </tr>
-            <tr>
-                <td>@</td>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
                 <td>@</td>
                 <td>@</td>
                 <td>@</td>
@@ -117,15 +100,9 @@
                 <td>@</td>
             </tr>
             <tr>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-                <td>@</td>
-            </tr>
-            <tr>
-                <td>@</td>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
                 <td>@</td>
                 <td>@</td>
                 <td>@</td>
@@ -133,7 +110,9 @@
                 <td>@</td>
             </tr>
             <tr>
-                <td>@</td>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
                 <td>@</td>
                 <td>@</td>
                 <td>@</td>
@@ -141,7 +120,69 @@
                 <td>@</td>
             </tr>
             <tr>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
                 <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+                <td>@</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" class="oneCheck">
+                </td>
                 <td>@</td>
                 <td>@</td>
                 <td>@</td>
