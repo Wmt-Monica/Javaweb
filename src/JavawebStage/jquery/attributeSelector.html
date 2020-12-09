@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+</head>
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    #div1,#div2,#div3{
+        width: 20%;
+        height: 220px;
+        float: left;
+        margin-left: 4%;
+        border: 1px solid black;
+    }
+    span{
+        width: 20%;
+        height: 220px;
+        float: left;
+        margin-left: 5%;
+        border: 1px solid black;
+    }
+    .class1,.class2{
+        width: 50%;
+        height: 50%;
+        margin-left: 25%;
+        margin-top: 10%;
+        border: 1px solid black;
+    }
+    button{
+        width: 200px;
+        height: 50px;
+        float: left;
+        margin-left: 10%;
+        margin-top: 20px;
+        font-size: 16px;
+
+    }
+</style>
+<script type="text/javascript" src="jquery-1.8.3.js"></script>
+<script>
+    $(function () {
+        // body中的第一个div元素
+        $("#but1").click(function () {
+            $("div[id]").css("background-color","pink");
+        });
+
+        // body中的最后一个div元素
+        $("#but2").click(function () {
+            $("div[id='div2']").css("background","cornflowerblue");
+        });
+
+        // body中的奇数个div元素
+        $("#but3").click(function () {
+            $("div[class]").css("background-color","crimson");
+        });
+
+        // body中的偶数个div元素
+        $("#but4").click(function () {
+            $("div[class='class1']").css("background-color","yellow");
+        })
+
+    });
+</script>
+    <body>
+        <div id="div1">
+            div1
+            <div class="class1">class1</div>
+        </div>
+        <div id="div2">
+            div2
+            <div class="class1">class1</div>
+        </div>
+        <div id="div3">
+            div3
+            <div class="class2">class2</div>
+        </div>
+        <span id="span1">span</span>
+        <button id="but1">有id属性的div元素</button>
+        <button id="but2">有id属性且值为div2的div元素</button>
+        <button id="but3">有class属性的div</button>
+        <button id="but4">有class属性且值为class1的div元素</button>
+    </body>
+</html>
