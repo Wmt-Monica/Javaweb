@@ -1,4 +1,4 @@
-package JavawebStage.JDBC.OperationDataSheet;
+package javawebStage.jDBC.operation.data.sheet;
 
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
-public class add_delete_update {
+public class Add_delete_update {
 
     InputStream input = null;  // 存储配置文件的输入字节流
     Properties prop = null;  // 存储连接数据库各个基本信息的键加元素对 Properties 对象
@@ -25,11 +25,11 @@ public class add_delete_update {
     PreparedStatement pre = null;  // 在 PreparedStatement 对象中执行 SQL 语句
 
     // 将连接数据库的操作在该类的构造方法中实现
-    public add_delete_update() {
+    public Add_delete_update() {
         try {
             // 1.创建配置文件字节流
             input = ClassLoader.getSystemClassLoader().getResourceAsStream(
-                    "JavawebStage/JDBC/ConnectToDatabase/connect.properties");
+                    "javawebStage/jDBC/connect/to/database/Connect.properties");
 
             // 2.创建 Properties 类对象存储俩捏数据库的信息键和元素对，使用 load() 方法传入配置文件的字节流对象
             prop = new Properties();
@@ -141,7 +141,7 @@ public class add_delete_update {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = simpleDateFormat.parse("2020-9-17");
         java.sql.Date stu_birthday = new java.sql.Date(date.getTime());
-        new add_delete_update().add(stu_id, stu_name, stu_sex, stu_telephone, stu_birthday);
+        new Add_delete_update().add(stu_id, stu_name, stu_sex, stu_telephone, stu_birthday);
     }
 
     // 调用删除指定数据的方法
@@ -149,7 +149,7 @@ public class add_delete_update {
     public void deleteRunning() throws SQLException {
         // 创建 SQL　语句字符串对象
         String sql = "delete from student where stu_name = '杨同志'";
-        new add_delete_update().delete(sql);
+        new Add_delete_update().delete(sql);
     }
 
     // 调用修改数据的方法
@@ -157,7 +157,7 @@ public class add_delete_update {
     public void updateRunning() throws SQLException {
         // 创建 SQL 语句字符串对象
         String sql = "update student set stu_name = '杨同志' where stu_name = '杨日健'";
-        new add_delete_update().update(sql);
+        new Add_delete_update().update(sql);
     }
 
 }

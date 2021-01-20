@@ -1,14 +1,14 @@
-package JavawebStage.JDBC.SelectDataSheet;
+package javawebStage.jDBC.select.data.sheet;
 
-import JavawebStage.JDBC.OperationDataSheet.add_delete_update;
+import javawebStage.jDBC.operation.data.sheet.Add_delete_update;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.sql.*;
 
-public class teacherSelect_02 {
+public class TeacherSelect02 {
     // 1.根据 add_delete_update 类获取 Connection 连接对象 conn
-    Connection conn = new add_delete_update().conn;
+    Connection conn = new Add_delete_update().conn;
 
     /**
      * 根据查询语句来获取单条数据
@@ -93,7 +93,7 @@ public class teacherSelect_02 {
     @Test
     public void selectRunning() throws NoSuchFieldException, IllegalAccessException, SQLException {
         String sql = "select teacher_id teacherID, teacher_name teacherName from teacher";
-        new teacherSelect_02().select(sql);
+        new TeacherSelect02().select(sql);
     }
 
     /**

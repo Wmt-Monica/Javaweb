@@ -1,8 +1,7 @@
-package JavawebStage.JDBC.ConnectToDatabase;
+package javawebStage.jDBC.connect.to.database;
 
 import org.junit.Test;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.Driver;
@@ -10,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class connectDatabase {
+public class ConnectDatabase {
 
     /**
      * 连接数据库的方式一：
@@ -159,9 +158,9 @@ public class connectDatabase {
         // 1.通过获取该类 class 对象的类加载器对象来获取指定路径下的配置文件的字节流
         // 补充：通过ClassLoader.getSystemClassLoader()也可以获取到该类的加载器
 //        InputStream input = ClassLoader.getSystemClassLoader().getResourceAsStream(
-//        "JavawebStage/JDBC/ConnectToDatabase/connect.properties");
-        InputStream input = connectDatabase.class.getClassLoader().getResourceAsStream(
-                "JavawebStage/JDBC/ConnectToDatabase/connect.properties");
+//        "JavawebStage/JDBC/ConnectToDatabase/Connect.properties");
+        InputStream input = ConnectDatabase.class.getClassLoader().getResourceAsStream(
+                "javawebStage/jDBC/connect/to/database/Connect.properties");
 
         // 2.创建 Properties 对象来存入获取输入字节流中的键和元素对的值
         Properties pros = new Properties();

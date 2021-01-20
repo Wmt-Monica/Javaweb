@@ -1,14 +1,14 @@
-package JavawebStage.JDBC.SelectDataSheet;
+package javawebStage.jDBC.select.data.sheet;
 
-import JavawebStage.JDBC.OperationDataSheet.add_delete_update;
+import javawebStage.jDBC.operation.data.sheet.Add_delete_update;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.sql.*;
 
-public class studentSelect_01 {
+public class StudentSelect01 {
     // 1.根据 add_delete_update 类获取 Connection 连接对象 conn
-    Connection conn = new add_delete_update().conn;
+    Connection conn = new Add_delete_update().conn;
 
     /**
      * 根据查询语句来获取单条数据
@@ -94,9 +94,9 @@ public class studentSelect_01 {
 //        String sql = "select * from student where stu_name = '王梦婷'";
         String sql = "select stu_name,stu_birthday from student";
         String sql1 = "select * from student";
-        new studentSelect_01().select(sql);
+        new StudentSelect01().select(sql);
         System.out.println("--------------------------------------------------------------------");
-        new studentSelect_01().select(sql1);
+        new StudentSelect01().select(sql1);
     }
 
     /**
