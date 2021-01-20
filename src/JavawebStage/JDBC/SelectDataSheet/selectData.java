@@ -188,11 +188,11 @@ public class selectData {
      * 表中的一个字段对应 java 类的一个属性
      */
     class student {
-        int stu_id;
-        String stu_name;
-        String stu_sex;
-        String stu_telephone;
-        Date stu_birthday;
+        private int stu_id;
+        private String stu_name;
+        private String stu_sex;
+        private String stu_telephone;
+        private Date stu_birthday;
 
         // 无参构造方法
         public student() {
@@ -221,8 +221,8 @@ public class selectData {
     }
 
     class teacher {
-        int teacherID;
-        String teacherName;
+        private int teacherID;
+        private String teacherName;
 
         public teacher() {
 
