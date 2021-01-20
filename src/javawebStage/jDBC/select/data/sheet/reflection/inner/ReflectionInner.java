@@ -1,10 +1,7 @@
 package javawebStage.jDBC.select.data.sheet.reflection.inner;
 
 import org.junit.Test;
-
-import javax.lang.model.type.DeclaredType;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Date;
 
 public class ReflectionInner {
 
