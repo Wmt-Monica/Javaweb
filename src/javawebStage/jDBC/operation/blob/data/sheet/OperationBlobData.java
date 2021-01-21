@@ -12,7 +12,7 @@ import java.sql.SQLException;
 /**
  * 操作 blob 类型数据的增删改查操作
  */
-public class operationBlobData {
+public class OperationBlobData {
     // 1.获取连接对象
     Connection conn = new Add_delete_update().conn;
 
@@ -100,13 +100,13 @@ public class operationBlobData {
         String peo_name = "王梦婷";
         File peo_photo = new File("src/javawebStage/jDBC/operation/blob/data/sheet/img/love2.jpg");
         Object[] objects = {peo_id, peo_name, peo_photo};
-        new operationBlobData().operationBlobDataInsertMethod(sql, objects);
+        new OperationBlobData().operationBlobDataInsertMethod(sql, objects);
     }
 
     @Test
     public void deleteRunning() throws SQLException {
         String sql = "delete from people where peo_name = '王梦婷'";
-        new operationBlobData().delete(sql);
+        new OperationBlobData().delete(sql);
     }
 
     @Test
@@ -114,7 +114,7 @@ public class operationBlobData {
         String sql = "update people set peo_photo = ? where peo_photo = ?";
         FileInputStream updateNewValue = new FileInputStream(new File("src/javawebStage/jDBC/operation/blob/data/sheet/img/love2.jpg"));
         FileInputStream updateOldValue = new FileInputStream(new File("src/javawebStage/jDBC/operation/blob/data/sheet/img/love.jpg"));
-        new operationBlobData().update(sql, updateNewValue, updateOldValue);
+        new OperationBlobData().update(sql, updateNewValue, updateOldValue);
     }
 
 }
