@@ -1,5 +1,6 @@
 package javawebStage.jDBC.select.data.sheet;
 
+import javawebStage.jDBC.operation.blob.data.sheet.po.Grade;
 import javawebStage.jDBC.operation.data.sheet.Add_delete_update;
 import org.junit.Test;
 
@@ -38,7 +39,7 @@ public class GradeSelect03 {
 
         // 5.创建由一条记录所对应Java对象所创建的数组
         // 使用传入的类对象 clazz 的 newInstance() 方法来使用该类的无参构造方法实例化创建的记录所对应的数组对象
-        Object objects = Array.newInstance(Grade.class, rowNum);
+        Object objects = Array.newInstance(clazz, rowNum);
 
         // 6.处理结果集
         int i = 0;
@@ -82,20 +83,4 @@ public class GradeSelect03 {
 
 }
 
-class Grade {
-    private int grade_id;
-    private int stu_id;
-    private int class_id;
-    private int grade;
-
-    @Override
-    public String toString() {
-        return "grade{" +
-                "grade_id=" + grade_id +
-                ", stu_id=" + stu_id +
-                ", class_id=" + class_id +
-                ", grade=" + grade +
-                '}';
-    }
-}
 

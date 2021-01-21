@@ -1,5 +1,6 @@
 package javawebStage.jDBC.select.data.sheet;
 
+import javawebStage.jDBC.operation.blob.data.sheet.po.Student;
 import javawebStage.jDBC.operation.data.sheet.Add_delete_update;
 import org.junit.Test;
 
@@ -43,7 +44,7 @@ public class StudentSelect01 {
         int columnCount = metaData.getColumnCount();  // 获取元数据的列数
 
         // 创建 student 类的数据用于存放查询出的 student 对象的记录
-        student[] students = new student[rowCount];
+        Student[] students = new Student[rowCount];
 
         // 6.处理结果集
         /*
@@ -55,7 +56,7 @@ public class StudentSelect01 {
             int j = 1;
 
             // 通过无参构造方法创建 student 对象
-            student stu = new student();
+            Student stu = new Student();
 
             // 1):获取有效一条 student 数据的所有字段的值
             while (j <= columnCount) {
@@ -64,7 +65,7 @@ public class StudentSelect01 {
                 // 1.获取查询到的数据的字段名称，通过调用元素据的 getColumnName() 方法第 j 个字段的字段名（不推荐，下面的 select2() 再此处做出了改进）
                 String columnName = metaData.getColumnName(j);
                 // 2.通过反射来获取 student 类中的属性对象来准确的对不同的字段进行赋值
-                Field field = student.class.getDeclaredField(columnName);
+                Field field = Student.class.getDeclaredField(columnName);
                 // 3.当该属性处于被保护的情况下，调用该属性的setAccessible() 方法，传入参数 true,这样也可以直接对该属性进行一些操作
                 field.setAccessible(true);
                 // 4.设置之前无参构造方法创建好的 student 对象对该其 field 属性赋值
@@ -83,7 +84,7 @@ public class StudentSelect01 {
         conn.close();  // Connection 连接对象资源关闭
 
         // 使用 foreach 遍历 student 数组
-        for (student stu : students) {
+        for (Student stu : students) {
             System.out.println(stu);
         }
     }
@@ -99,43 +100,4 @@ public class StudentSelect01 {
         new StudentSelect01().select(sql1);
     }
 
-    /**
-     * 创建查询表结果的 student 对象
-     * ORM编程思想（object relation mapping）
-     * 一个数据表对应一个 java 类
-     * 表中的一条记录对应 java 类中的一个对象
-     * 表中的一个字段对应 java 类的一个属性
-     */
-    class student {
-        private int stu_id;
-        private String stu_name;
-        private String stu_sex;
-        private String stu_telephone;
-        private Date stu_birthday;
-
-        // 无参构造方法
-        public student() {
-
-        }
-
-        // 有参构造方法
-        public student(int stu_id, String stu_name, String stu_sex, String stu_telephone, Date stu_birthday) {
-            this.stu_id = stu_id;
-            this.stu_name = stu_name;
-            this.stu_sex = stu_sex;
-            this.stu_telephone = stu_telephone;
-            this.stu_birthday = stu_birthday;
-        }
-
-        @Override
-        public String toString() {
-            return "student{" +
-                    "stu_id=" + stu_id +
-                    ", stu_name='" + stu_name + '\'' +
-                    ", stu_sex='" + stu_sex + '\'' +
-                    ", stu_telephone='" + stu_telephone + '\'' +
-                    ", stu_birthday='" + stu_birthday + '\'' +
-                    '}';
-        }
-    }
 }

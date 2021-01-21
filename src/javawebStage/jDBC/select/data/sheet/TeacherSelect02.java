@@ -1,5 +1,6 @@
 package javawebStage.jDBC.select.data.sheet;
 
+import javawebStage.jDBC.operation.blob.data.sheet.po.Teacher;
 import javawebStage.jDBC.operation.data.sheet.Add_delete_update;
 import org.junit.Test;
 
@@ -44,7 +45,7 @@ public class TeacherSelect02 {
         int columnCount = metaData.getColumnCount();  // 获取元数据的列数
 
         // 创建 student 类的数据用于存放查询出的 student 对象的记录
-        teacher[] teachers = new teacher[rowCount];
+        Teacher[] teachers = new Teacher[rowCount];
 
         // 6.处理结果集
         /*
@@ -56,7 +57,7 @@ public class TeacherSelect02 {
             int j = 1;
 
             // 通过无参构造方法创建 student 对象
-            teacher tea = new teacher();
+            Teacher tea = new Teacher();
 
             // 1):获取有效一条 student 数据的所有字段的值
             while (j <= columnCount) {
@@ -66,7 +67,7 @@ public class TeacherSelect02 {
                 // 注意：此处不推荐使用 ResultSetMetaData 对象的 getColumnName() 方法是为了确保MySQL与JDBC的兼容性
                 String columnLabel = metaData.getColumnLabel(j);
                 // 2.通过反射来获取 student 类中的属性对象来准确的对不同的字段进行赋值
-                Field field = teacher.class.getDeclaredField(columnLabel);
+                Field field = Teacher.class.getDeclaredField(columnLabel);
                 // 3.当该属性处于被保护的情况下，调用该属性的setAccessible() 方法，传入参数 true,这样也可以直接对该属性进行一些操作
                 field.setAccessible(true);
                 // 4.设置之前无参构造方法创建好的 student 对象对该其 field 属性赋值
@@ -85,7 +86,7 @@ public class TeacherSelect02 {
         conn.close();  // Connection 连接对象资源关闭
 
         // 使用 foreach 遍历 student 数组
-        for (teacher tea : teachers) {
+        for (Teacher tea : teachers) {
             System.out.println(tea);
         }
     }
@@ -96,33 +97,4 @@ public class TeacherSelect02 {
         new TeacherSelect02().select(sql);
     }
 
-    /**
-     * 创建查询表结果的 student 对象
-     * ORM编程思想（object relation mapping）
-     * 一个数据表对应一个 java 类
-     * 表中的一条记录对应 java 类中的一个对象
-     * 表中的一个字段对应 java 类的一个属性
-     */
-
-    class teacher {
-        private int teacherID;
-        private String teacherName;
-
-        public teacher() {
-
-        }
-
-        public teacher(int teacherID, String teacherName) {
-            this.teacherID = teacherID;
-            this.teacherName = teacherName;
-        }
-
-        @Override
-        public String toString() {
-            return "teacher{" +
-                    "teacherID=" + teacherID +
-                    ", teacherName='" + teacherName + '\'' +
-                    '}';
-        }
-    }
 }
