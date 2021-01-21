@@ -1,6 +1,5 @@
-package javawebStage.jDBC.operation.blob.data.sheet;
+package javawebStage.jDBC.select.data.sheet;
 
-import javawebStage.jDBC.operation.blob.data.sheet.po.Grade;
 import javawebStage.jDBC.operation.blob.data.sheet.po.People;
 import javawebStage.jDBC.operation.data.sheet.Add_delete_update;
 import org.junit.Test;
