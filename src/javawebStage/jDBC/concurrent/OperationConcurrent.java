@@ -7,7 +7,7 @@ import java.sql.*;
 /**
  * 实现数据库的筛选操作
  */
-public class SelectReturnObjects {
+public class OperationConcurrent {
 
     /**
      * 根据 SQL 语句和查询表记录所对应的 Java 对象
@@ -17,7 +17,7 @@ public class SelectReturnObjects {
      * @param <T> ORM 思想记录所对应的 Java 对象的 class 类型
      * @return 返回 SQL 筛选语句返回的结果集
      */
-    public <T> T[] select(Class<T> clazz, Connection conn, String sql,String  stuName)
+    public <T> T[] select(Class<T> clazz, Connection conn, String sql,String stuName)
             throws SQLException, IllegalAccessException, InstantiationException, NoSuchFieldException {
 
         // 1.根据 Connection 连接对象创建 PreparedStatement 预编译和执行对象 pre
@@ -82,5 +82,22 @@ public class SelectReturnObjects {
 
         // 8.返回结果 List 对象
        return returnResult;
+    }
+
+    /**
+     * 修改数据的方法
+     * @param conn 用于连接数据库的 Connection 的连接对象
+     * @param sql 有关数据修改的 SQL 语句
+     * @param updateVale SQL　语句中占位符对应的数据
+     * @throws SQLException
+     */
+    public void update(Connection conn, String sql, Object[] updateVale) throws SQLException {
+        PreparedStatement pre = conn.prepareStatement(sql);
+        for (int i = 0;i < updateVale.length; i ++) {
+            pre.setObject(i+1, updateVale[i]);
+        }
+        pre.execute();
+        System.out.println("修改数据成功......");
+        pre.close();
     }
 }
