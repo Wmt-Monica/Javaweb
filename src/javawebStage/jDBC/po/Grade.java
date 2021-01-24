@@ -1,4 +1,4 @@
-package javawebStage.jDBC.operation.blob.data.sheet.po;
+package javawebStage.jDBC.po;
 
 /**
  * 创建查询表结果的 student 对象

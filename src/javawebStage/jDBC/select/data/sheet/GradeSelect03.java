@@ -1,6 +1,6 @@
 package javawebStage.jDBC.select.data.sheet;
 
-import javawebStage.jDBC.operation.blob.data.sheet.po.Grade;
+import javawebStage.jDBC.po.Grade;
 import javawebStage.jDBC.operation.data.sheet.Add_delete_update;
 import org.junit.Test;
 
@@ -76,7 +76,7 @@ public class GradeSelect03 {
 
     @Test
     public void selectRunning() throws SQLException, NoSuchFieldException, InstantiationException, IllegalAccessException {
-        String sql = "select * from grade";
+        String sql = "select grade_id gradeID, stu_id stuID from grade";
         GradeSelect03 gradeSelect_03 = new GradeSelect03();
         gradeSelect_03.select(Grade.class, sql);
     }

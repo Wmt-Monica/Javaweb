@@ -1,6 +1,6 @@
 package javawebStage.jDBC.select.data.sheet;
 
-import javawebStage.jDBC.operation.blob.data.sheet.po.Teacher;
+import javawebStage.jDBC.po.Teacher;
 import javawebStage.jDBC.operation.data.sheet.Add_delete_update;
 import org.junit.Test;
 

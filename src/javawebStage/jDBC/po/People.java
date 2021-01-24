@@ -1,4 +1,4 @@
-package javawebStage.jDBC.operation.blob.data.sheet.po;
+package javawebStage.jDBC.po;
 
 import java.sql.Blob;
 
