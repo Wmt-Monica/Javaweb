@@ -1,6 +1,7 @@
 package javawebStage.jDBC.connect.pool;
 
 import javawebStage.jDBC.connect.dao.DAO;
+import javawebStage.jDBC.connect.util.JDBCUtil;
 import org.junit.Test;
 
 import java.sql.Connection;
@@ -17,6 +18,8 @@ public class PoolTest {
             new DAO().insert(conn, sql);
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            new JDBCUtil().Close(conn, null, null);
         }
     }
 
@@ -30,6 +33,8 @@ public class PoolTest {
             new DAO().insert(conn, sql, objects);
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            new JDBCUtil().Close(conn, null, null);
         }
     }
 
@@ -42,6 +47,8 @@ public class PoolTest {
             new DAO().update(conn, sql);
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            new JDBCUtil().Close(conn, null, null);
         }
     }
 
@@ -55,6 +62,8 @@ public class PoolTest {
             new DAO().update(conn, sql, objects);
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            new JDBCUtil().Close(conn, null, null);
         }
     }
 
@@ -67,6 +76,8 @@ public class PoolTest {
             new DAO().delete(conn, sql);
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            new JDBCUtil().Close(conn, null, null);
         }
     }
 
@@ -75,10 +86,13 @@ public class PoolTest {
         ConnectionPool pool = new ConnectionPool();
         String sql = "delete from animal where animal_name = ?";
         Object[] objects = {"燔猩猩"};
+        Connection conn = pool.getConnection();
         try {
-            new DAO().delete(pool.getConnection(), sql, objects);
+            new DAO().delete(conn, sql, objects);
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            new JDBCUtil().Close(conn, null, null);
         }
     }
 
