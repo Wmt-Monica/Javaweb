@@ -1,4 +1,4 @@
-package javawebStage.jDBC.connect.to.database;
+package javawebStage.jDBC.connect.database;
 
 import org.junit.Test;
 
@@ -160,7 +160,7 @@ public class ConnectDatabase {
 //        InputStream input = ClassLoader.getSystemClassLoader().getResourceAsStream(
 //        "JavawebStage/JDBC/ConnectToDatabase/Connect.properties");
         InputStream input = ConnectDatabase.class.getClassLoader().getResourceAsStream(
-                "javawebStage/jDBC/connect/to/database/Connect.properties");
+                "javawebStage/jDBC/connect/database/Connect.properties");
 
         // 2.创建 Properties 对象来存入获取输入字节流中的键和元素对的值
         Properties pros = new Properties();

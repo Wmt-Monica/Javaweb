@@ -21,7 +21,7 @@ public class JDBCUtil {
     public Connection getConnectionObject() {
         // 1.创建读取配置文件的字节流
         input = ClassLoader.getSystemClassLoader().getResourceAsStream(
-                "javawebStage/jDBC/connect/to/database/Connect.properties");
+                "javawebStage/jDBC/connect/database/Connect.properties");
 
         // 2.创建 Properties 类对象存储连接数据库的基本信息键和元素对
         prop = new Properties();
