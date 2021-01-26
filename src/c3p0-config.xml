@@ -10,11 +10,11 @@
         <property name="maxPoolSize">20</property>
     </default-config>
 
-    <named-config name="itheima">
+    <named-config name="ShiFan">
         <property name="driverClass">com.mysql.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql:///web08</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/university</property>
         <property name="user">root</property>
-        <property name="password">root</property>
+        <property name="password">mengmengmeng0501</property>
     </named-config>
 
 
