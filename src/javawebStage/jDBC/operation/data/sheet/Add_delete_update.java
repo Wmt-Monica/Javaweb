@@ -29,7 +29,7 @@ public class Add_delete_update {
         try {
             // 1.创建配置文件字节流
             input = ClassLoader.getSystemClassLoader().getResourceAsStream(
-                    "javawebStage/jDBC/connect/to/database/Connect.properties");
+                    "javawebStage/jDBC/connect/database/Connect.properties");
 
             // 2.创建 Properties 类对象存储俩捏数据库的信息键和元素对，使用 load() 方法传入配置文件的字节流对象
             prop = new Properties();
