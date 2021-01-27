@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE web-app SYSTEM "web-app_2_3.dtd">
+<web-app version="1.0">
+    <servlet>
+        <servlet-name></servlet-name>
+        <jsp-file></jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name></servlet-name>
+        <description></description>
+        <jsp-file></jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name></servlet-name>
+        <servlet-class></servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>石燔</servlet-name>
+        <url-pattern>王梦婷</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file></welcome-file>
+    </welcome-file-list>
+</web-app>
