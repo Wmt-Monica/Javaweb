@@ -10,6 +10,43 @@ import java.util.List;
 
 public class XMLTest {
 
+    public void method() {
+        System.out.println("反射该对象成功");
+    }
+
+    @Test
+    public void test2() {
+        try {
+            // 1.获取解析器
+            SAXReader saxReader = new SAXReader();
+
+            // 2.创建 Document 文旦对象
+            Document doc = saxReader.read("src/javawebStage/jDBC/xml/util/web-app.xml");
+
+            // 3.获取根元素对象
+            Element rootElement = doc.getRootElement();
+
+            // 4.获取根元素中的第三个 servlet 元素中的 servlet-class 子元素的 text 文本内容
+            List<Element> childElements = rootElement.elements("servlet");
+            String clazzName = childElements.get(2).element("servlet-class").getText();
+            System.out.println(clazzName);
+
+            // 5.通过获取到的类名称来反射创建类对象
+            XMLTest xmlTest = (XMLTest) Class.forName(clazzName).newInstance();
+
+            // 6.使用通过反射创建的 XMLTest 对象
+            xmlTest.method();
+
+
+        } catch (DocumentException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Test
     public void test1() {
 

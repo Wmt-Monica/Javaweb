@@ -2,17 +2,17 @@
 <!DOCTYPE web-app SYSTEM "web-app_2_3.dtd">
 <web-app version="1.0">
     <servlet>
-        <servlet-name></servlet-name>
-        <jsp-file></jsp-file>
+        <servlet-name>燔傻逼</servlet-name>
+        <jsp-file>燔狗屎</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name></servlet-name>
-        <description></description>
-        <jsp-file></jsp-file>
+        <servlet-name>燔弟弟</servlet-name>
+        <description>燔猪头</description>
+        <jsp-file>燔妹妹</jsp-file>
     </servlet>
     <servlet>
-        <servlet-name></servlet-name>
-        <servlet-class></servlet-class>
+        <servlet-name>燔儿砸</servlet-name>
+        <servlet-class>javawebStage.jDBC.xml.XMLTest</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -21,6 +21,6 @@
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file></welcome-file>
+        <welcome-file>小燔燔</welcome-file>
     </welcome-file-list>
 </web-app>
